@@ -26,45 +26,40 @@ use Illuminate\Support\Facades\Route;
 
 // });
 
-Route::get('/home', function () {
-    return view('home');
-    });
-
-Route::get('/product', function () {
-    return view('home');
-    });
-    
-
 
 //example example example
 Route::get('/hello', function () {
     return view('hello', ['name' => 'Andi']);
     });
 
-    Route::prefix('product')->group(function (){
-        Route::get('/category/marbel-edu-games', function(){
-            return view('product');
-        });
-        Route::get('category/kolak-kids-songs', function(){
-                return redirect('https://www.educastudio.com/category/kolak-kids-songs');
-            });
-            Route::get('category/riri-story-books', function(){
-                return redirect('https://www.educastudio.com/category/riri-story-books');
-            });
-            Route::get('category/kolak-kids-songs', function(){
-                return redirect('https://www.educastudio.com/category/kolak-kids-songs');
-            });
+
+//HOME
+Route::get('/home', function () {
+    return view('home');
     });
 
-    // 
-
-//Route Param
-Route::get('/news', function(){
-    return view('news');
+//PRODUCTS
+Route::prefix('product')->group(function (){
+    Route::get('/category/marbel-edu-games', function(){
+        return view('productMarbel');
+    });
+    Route::get('category/kolak-kids-songs', function(){
+            return view('productKolak');
+        });
 });
 
+//NEWS
+//Route Param
+    Route::get('/news', function(){
+        return view('news');
+    });
+    Route::get('news/{title}', function($title){
+        return view('newsP'.$title);
+        //educa-studio-berbagi-untuk-warga-sekitar-terdampak-covid-19
+    });
 
 
+//PROGRAM
 //Route Prefix
 Route::prefix('program')->group(function (){
     Route::get('program/karir', function(){
