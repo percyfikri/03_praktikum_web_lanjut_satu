@@ -62,13 +62,16 @@ Route::prefix('product')->group(function (){
 //PROGRAM
 //Route Prefix
 Route::prefix('program')->group(function (){
-    Route::get('program/karir', function(){
-        return view('program');
+    Route::get('/program/karir', function(){
+        return view('programKarir');
     });
-    // Route::get('program/magang', function(){
-    //     return redirect('https://www.educastudio.com/program/magang');
-    // });
-    // Route::get('program/kunjungan-industri', function(){
-    //     return redirect('https://www.educastudio.com/program/kunjungan-industri');
-    // });
+    Route::get('/program/magang', function(){
+        return view('programMagang');
+    });
 });
+
+//ABOUT US
+//Route Biasa
+Route::get('/about-us', function(){
+    return view('about-us'); 
+ });
