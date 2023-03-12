@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Coba;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -75,3 +76,11 @@ Route::prefix('program')->group(function (){
 Route::get('/about-us', function(){
     return view('about-us'); 
  });
+
+//  CONTACT US
+// Route resource
+//Route Resouce-only
+Route::resource('/contact-us', Coba::class)->only([
+    'index',
+    'create'
+]);
